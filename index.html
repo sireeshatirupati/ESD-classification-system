@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESD Classification System - AI-Powered Erythemato-Squamous Disease Diagnosis</title>
+    <meta name="description" content="Advanced machine learning model with 90% accuracy using 8 key clinical predictors for precise classification of skin conditions.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gradient-subtle">
+    <!-- Toast notification -->
+    <div id="toast" class="toast hidden"></div>
+    
+    <main class="container mx-auto px-4 py-8 space-y-8">
+        <!-- Header Section -->
+        <div class="card relative overflow-hidden bg-gradient-medical border-0 text-primary-foreground">
+<div class="absolute inset-0" style="background-image: url('Gemini_Generated_Image_x4f55px4f55px4f5.png'); background-size: cover; background-position: center; backdrop-filter: blur(20px); background-color: rgba(255, 255, 255, 0.2);"></div>
+            <div class="relative z-10 p-8 md:p-12">
+                <div class="max-w-4xl mx-auto text-center space-y-6">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <!-- Brain Icon -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <!-- Activity Icon -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+                        ESD Classification System
+                    </h1>
+                    <p class="text-xl md:text-2xl opacity-90">
+                        AI-Powered Erythemato-Squamous Disease Diagnosis
+                    </p>
+                    <p class="text-lg opacity-80 max-w-2xl mx-auto">
+                        Advanced machine learning model with 90% accuracy using 8 key clinical predictors
+                        for precise classification of skin conditions.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm">
+                        <div class="bg-white/20 px-3 py-1 rounded-full">
+                            Fine KNN Algorithm
+                        </div>
+                        <div class="bg-white/20 px-3 py-1 rounded-full">
+                            90% Accuracy
+                        </div>
+                        <div class="bg-white/20 px-3 py-1 rounded-full">
+                            8 Clinical Predictors
+                        </div>
+                        <div class="bg-white/20 px-3 py-1 rounded-full">
+                            6 Disease Classes
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column - Classifier -->
+            <div class="lg:col-span-2">
+                <div class="space-y-6">
+                    <!-- ESD Classifier Card -->
+                    <div class="card bg-gradient-card">
+                        <div class="card-header">
+                            <h2 class="card-title">
+                                <!-- Stethoscope Icon -->
+                                <svg class="w-5 h-5 text-medical" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.29 1.51 4.04 3 5.5l6 6 6-6z"></path>
+                                </svg>
+                                ESD Clinical Predictors
+                            </h2>
+                            <p class="card-description">
+                                Enter the clinical findings for erythemato-squamous disease classification
+                            </p>
+                        </div>
+                        <div class="card-content space-y-6">
+                            <form id="esdForm">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <!-- Itching -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="itching">Itching</label>
+                                        <select class="select" id="itching" name="itching" required>
+                                            <option value="">Select severity</option>
+                                            <option value="0">None (0)</option>
+                                            <option value="1">Mild (1)</option>
+                                            <option value="2">Moderate (2)</option>
+                                            <option value="3">Severe (3)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Koebner Phenomenon -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="koebnerPhenomenon">Koebner Phenomenon</label>
+                                        <select class="select" id="koebnerPhenomenon" name="koebnerPhenomenon" required>
+                                            <option value="">Select presence</option>
+                                            <option value="0">Absent (0)</option>
+                                            <option value="1">Present (1)</option>
+                                            <option value="2">Marked (2)</option>
+                                            <option value="3">Severe (3)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Follicular Papules -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="follicularPapules">Follicular Papules</label>
+                                        <select class="select" id="follicularPapules" name="follicularPapules" required>
+                                            <option value="">Select presence</option>
+                                            <option value="0">Absent (0)</option>
+                                            <option value="1">Few (1)</option>
+                                            <option value="2">Many (2)</option>
+                                            <option value="3">Extensive (3)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Fibrosis of Papillary Dermis -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="fibrosisOfPapillaryDermis">Fibrosis of Papillary Dermis</label>
+                                        <select class="select" id="fibrosisOfPapillaryDermis" name="fibrosisOfPapillaryDermis" required>
+                                            <option value="">Select severity</option>
+                                            <option value="0">None (0)</option>
+                                            <option value="1">Mild (1)</option>
+                                            <option value="2">Moderate (2)</option>
+                                            <option value="3">Severe (3)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Spongiosis -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="spongiosis">Spongiosis</label>
+                                        <select class="select" id="spongiosis" name="spongiosis" required>
+                                            <option value="">Select severity</option>
+                                            <option value="0">None (0)</option>
+                                            <option value="1">Mild (1)</option>
+                                            <option value="2">Moderate (2)</option>
+                                            <option value="3">Severe (3)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Inflammatory Mononuclear Infiltrate -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="inflammatoryMononuclearInfiltrate">Inflammatory Mononuclear Infiltrate</label>
+                                        <select class="select" id="inflammatoryMononuclearInfiltrate" name="inflammatoryMononuclearInfiltrate" required>
+                                            <option value="">Select severity</option>
+                                            <option value="0">None (0)</option>
+                                            <option value="1">Mild (1)</option>
+                                            <option value="2">Moderate (2)</option>
+                                            <option value="3">Severe (3)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Band-like Infiltrate -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="bandLikeInfiltrate">Band-like Infiltrate</label>
+                                        <select class="select" id="bandLikeInfiltrate" name="bandLikeInfiltrate" required>
+                                            <option value="">Select presence</option>
+                                            <option value="0">Absent (0)</option>
+                                            <option value="1">Present (1)</option>
+                                            <option value="2">Prominent (2)</option>
+                                            <option value="3">Extensive (3)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Age -->
+                                    <div class="space-y-2">
+                                        <label class="label" for="age">Patient Age</label>
+                                        <input class="input" id="age" name="age" type="number" min="0" max="120" value="30" placeholder="Enter age" required>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6">
+                                    <button type="button" id="classifyBtn" class="btn-medical w-full">
+                                        <span id="btnText">Classify ESD</span>
+                                        <svg id="btnLoader" class="w-4 h-4 animate-spin hidden" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Results Card -->
+                    <div id="resultsCard" class="card bg-gradient-card animate-fade-in hidden">
+                        <div class="card-header">
+                            <h2 class="card-title">
+                                <!-- CheckCircle Icon -->
+                                <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Classification Results
+                            </h2>
+                        </div>
+                        <div class="card-content space-y-4">
+                            <div class="text-center">
+                                <div id="predictedClass" class="badge-outline text-lg px-4 py-2 bg-success-light inline-block rounded-full font-semibold">
+                                    Psoriasis
+                                </div>
+                                <p id="confidence" class="text-sm text-muted-foreground mt-2">
+                                    Confidence: 85.0%
+                                </p>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <h4 class="font-semibold">Probability Distribution:</h4>
+                                <div id="probabilityList" class="space-y-2">
+                                    <!-- Probability bars will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Sidebar -->
+            <div class="space-y-6">
+                <!-- About This System -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <!-- Info Icon -->
+                            <svg class="w-5 h-5 text-medical" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            About This System
+                        </h3>
+                    </div>
+                    <div class="card-content space-y-3 text-sm">
+                        <p>
+                            This AI system classifies erythemato-squamous diseases using a Fine KNN algorithm 
+                            trained on clinical data from 366 patients.
+                        </p>
+                        <p>
+                            The model achieves 90% cross-validation accuracy using only 8 key clinical predictors,
+                            making it highly efficient for clinical decision support.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Disease Classes -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <!-- Target Icon -->
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            Disease Classes
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="space-y-2 text-sm">
+                            <li>• Psoriasis</li>
+                            <li>• Seborrheic Dermatitis</li>
+                            <li>• Lichen Planus</li>
+                            <li>• Pityriasis Rosea</li>
+                            <li>• Chronic Dermatitis</li>
+                            <li>• Pityriasis Rubra Pilaris</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <!-- Zap Icon -->
+                            <svg class="w-5 h-5 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Key Features
+                        </h3>
+                    </div>
+                    <div class="card-content space-y-2 text-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-success rounded-full"></div>
+                            <span>90% Classification Accuracy</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-success rounded-full"></div>
+                            <span>8 Clinical Predictors Only</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-success rounded-full"></div>
+                            <span>Real-time Classification</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-success rounded-full"></div>
+                            <span>Probability Distribution</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinical Note -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <!-- Users Icon -->
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                            </svg>
+                            Clinical Note
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-sm text-muted-foreground">
+                            This system is designed to assist healthcare professionals in clinical decision-making. 
+                            Always consult with qualified medical personnel for diagnosis and treatment decisions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

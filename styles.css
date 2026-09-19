@@ -1,0 +1,626 @@
+/* Medical ESD Classification Design System */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Base colors matching React version */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    --primary: 193 95% 68%;
+    --primary-foreground: 210 20% 98%;
+    --primary-hover: 193 95% 58%;
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 215 25% 27%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 15% 50%;
+    --accent: 170 76% 64%;
+    --accent-foreground: 215 25% 27%;
+    --medical: 193 100% 35%;
+    --medical-foreground: 210 20% 98%;
+    --medical-light: 193 75% 85%;
+    --success: 142 76% 36%;
+    --success-foreground: 210 20% 98%;
+    --success-light: 142 76% 90%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 25% 27%;
+    --warning-light: 38 92% 90%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 214 31% 91%;
+    --input: 214 31% 91%;
+    --ring: 193 95% 68%;
+    
+    /* Medical gradients */
+    --gradient-medical: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--medical)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--medical-light) / 0.1));
+    
+    /* Medical shadows */
+    --shadow-medical: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 2px 10px hsl(var(--foreground) / 0.1);
+    --shadow-elevated: 0 8px 30px hsl(var(--primary) / 0.2);
+    
+    --radius: 0.5rem;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+    background: hsl(var(--background));
+}
+
+/* Utility Classes */
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.bg-gradient-subtle {
+    background: var(--gradient-subtle);
+}
+
+.bg-gradient-medical {
+    background: var(--gradient-medical);
+}
+
+.bg-gradient-card {
+    background: var(--gradient-card);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.p-8 {
+    padding: 2rem;
+}
+
+.md\:p-12 {
+    padding: 3rem;
+}
+
+.space-y-8 > * + * {
+    margin-top: 2rem;
+}
+
+.space-y-6 > * + * {
+    margin-top: 1.5rem;
+}
+
+.space-y-4 > * + * {
+    margin-top: 1rem;
+}
+
+.space-y-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+.space-y-2 > * + * {
+    margin-top: 0.5rem;
+}
+
+.gap-6 {
+    gap: 1.5rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lg\:col-span-2 {
+    grid-column: span 2 / span 2;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.max-w-4xl {
+    max-width: 56rem;
+}
+
+.max-w-2xl {
+    max-width: 42rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-6 {
+    margin-top: 1.5rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-8 {
+    width: 2rem;
+}
+
+.w-5 {
+    width: 1.25rem;
+}
+
+.w-4 {
+    width: 1rem;
+}
+
+.w-2 {
+    width: 0.5rem;
+}
+
+.w-24 {
+    width: 6rem;
+}
+
+.w-12 {
+    width: 3rem;
+}
+
+.h-8 {
+    height: 2rem;
+}
+
+.h-5 {
+    height: 1.25rem;
+}
+
+.h-4 {
+    height: 1rem;
+}
+
+.h-2 {
+    height: 0.5rem;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+
+.md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+
+.opacity-90 {
+    opacity: 0.9;
+}
+
+.opacity-80 {
+    opacity: 0.8;
+}
+
+.opacity-20 {
+    opacity: 0.2;
+}
+
+.border-0 {
+    border-width: 0;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Color Classes */
+.text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+}
+
+.text-medical {
+    color: hsl(var(--medical));
+}
+
+.text-accent {
+    color: hsl(var(--accent));
+}
+
+.text-warning {
+    color: hsl(var(--warning));
+}
+
+.text-primary {
+    color: hsl(var(--primary));
+}
+
+.text-success {
+    color: hsl(var(--success));
+}
+
+.text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+}
+
+.bg-white\/20 {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bg-success {
+    background-color: hsl(var(--success));
+}
+
+.bg-success-light {
+    background-color: hsl(var(--success-light));
+}
+
+.bg-muted {
+    background-color: hsl(var(--muted));
+}
+
+.bg-primary {
+    background-color: hsl(var(--primary));
+}
+
+.px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Component Styles */
+.card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+    background: hsl(var(--muted));
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: hsl(var(--card-foreground));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-description {
+    color: hsl(var(--muted-foreground));
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.label {
+    font-weight: 500;
+    color: hsl(var(--card-foreground));
+    font-size: 0.875rem;
+    display: block;
+}
+
+.select,
+.input {
+    padding: 0.75rem 1rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    background: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.select:focus,
+.input:focus {
+    outline: none;
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+.btn-medical {
+    padding: 1rem 1.5rem;
+    background: hsl(var(--medical));
+    color: hsl(var(--medical-foreground));
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-medical);
+}
+
+.btn-medical:hover:not(:disabled) {
+    background: hsl(var(--primary-hover));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.btn-medical:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.badge-outline {
+    border: 1px solid hsl(var(--border));
+    border-radius: 1.5rem;
+    font-weight: 600;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.transition-all {
+    transition: all 0.5s ease;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Toast Styles */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    padding: 16px 20px;
+    box-shadow: 0 10px 40px hsl(var(--foreground) / 0.2);
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+    max-width: 400px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast.success {
+    border-left: 4px solid hsl(var(--success));
+}
+
+.toast.error {
+    border-left: 4px solid hsl(var(--destructive));
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .lg\:grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    
+    .lg\:col-span-2 {
+        grid-column: span 1 / span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .p-8 {
+        padding: 1.5rem;
+    }
+    
+    .md\:p-12 {
+        padding: 2rem;
+    }
+    
+    .text-4xl {
+        font-size: 2rem;
+        line-height: 2.25rem;
+    }
+    
+    .md\:text-5xl {
+        font-size: 2.5rem;
+        line-height: 1;
+    }
+    
+    .text-xl {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+    
+    .md\:text-2xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+    
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    
+    .card-header,
+    .card-content {
+        padding: 1.25rem;
+    }
+}
