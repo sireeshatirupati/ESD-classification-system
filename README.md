@@ -1,12 +1,8 @@
-# 🩺 ESD Classification System - Erythemato-Squamous Disease Detection
+# ESD Classification System
 
-An AI/ML based medical classification system to detect Erythemato-Squamous Diseases (ESD) using clinical and histopathological features. This project helps in early and accurate diagnosis of 6 types of skin diseases.
+Live Project: https://sireeshatirupati.github.io/ESD-classification-system/
 
-### 🌐 Live Demo:
-https://sireeshatirupati.github.io/ESD-classification-system/
-
-### 🔗 GitHub Repo:
-https://github.com/sireeshatirupati/ESD-classification-system
+An AI/ML based system to classify Erythemato-Squamous Diseases (ESD) into 6 types using clinical & histopathological data. Built with Python, Scikit-learn (SVM 100% accuracy) and deployed with HTML/CSS/JS on GitHub Pages.
 
 ### 📌 Problem Statement
 Erythemato-Squamous Diseases share similar symptoms like erythema and scaling, which makes manual diagnosis difficult. This system uses Machine Learning to classify the disease accurately and reduce misdiagnosis.
@@ -19,7 +15,7 @@ Erythemato-Squamous Diseases share similar symptoms like erythema and scaling, w
     4. Pityriasis Rosea
     5. Chronic Dermatitis
     6. Pityriasis Rubra Pilaris
-- 📊 Uses 34 Features (12 Clinical + 22 Histopathological)
+- 📊 Uses 34 Features (12 Clinical + 22 Histopathological
 - 🤖 Multiple ML Models Compared: SVM, Random Forest, XGBoost, Logistic Regression
 - 🎯 High Accuracy: SVM achieved 100% Test Accuracy
 - 📱 Clean & Responsive Web Interface
@@ -30,5 +26,3 @@ Erythemato-Squamous Diseases share similar symptoms like erythema and scaling, w
 - **Dataset:** UCI Dermatology Dataset
 - **Techniques:** SMOTEENN for Class Imbalance, Feature Selection, SHAP for Explainability
 - **Hosting:** GitHub Pages
-
-### 📁 Project Structure
